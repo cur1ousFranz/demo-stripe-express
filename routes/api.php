@@ -22,3 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/express/create', [StripeController::class, 'createAccount']);
 Route::post('/express/create/{id}/link', [StripeController::class, 'createAccountLink']);
 Route::get('/express/retrieve/{id}', [StripeController::class, 'retrieveAccount']);
+Route::get('/express/login/{id}/link', [StripeController::class, 'loginAccountLink']);
+Route::post('/express/payout/{id}', [StripeController::class, 'payoutAccount']);
+Route::post('/express/redirect', function () {
+    return response()->json(["data" => "success"]);
+});
